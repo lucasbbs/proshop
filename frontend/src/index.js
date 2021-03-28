@@ -4,6 +4,18 @@ import './bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import { createStore, applyMiddleware } from 'redux';
+// import ReduxPromise from 'redux-promise';
+// import rootReducer from './reducers';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(
+//     applyMiddleware(ReduxPromise)
+//     // other store enhancers if any
+//   )
+// );
 
 ReactDOM.render(
   <React.StrictMode>

@@ -60,7 +60,7 @@ const ProductScreen = ({ match }) => {
               </ListGroupItem>
               <ListGroupItem>
                 <button
-                  className='btn-block btn-dark'
+                  className='btn-block py-2'
                   type='button'
                   disabled={product.countInStock === 0}
                 >

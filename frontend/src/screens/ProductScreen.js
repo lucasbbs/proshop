@@ -25,7 +25,6 @@ const ProductScreen = ({ history, match }) => {
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
-  console.log(productDetails);
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const ProductScreen = ({ history, match }) => {
     // };
     // fetchProduct();
   }, [dispatch, match]);
-
+  // console.log(product.rating);
   const addToCartHandler = () => {
     console.log(qty);
     history.push(`/cart/${match.params.id}?qty=${qty}`);

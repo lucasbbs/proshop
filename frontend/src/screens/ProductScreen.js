@@ -35,7 +35,6 @@ const ProductScreen = ({ history, match }) => {
     // };
     // fetchProduct();
   }, [dispatch, match]);
-  // console.log(product.rating);
   const addToCartHandler = () => {
     console.log(qty);
     history.push(`/cart/${match.params.id}?qty=${qty}`);
@@ -62,7 +61,7 @@ const ProductScreen = ({ history, match }) => {
               </ListGroupItem>
               <ListGroupItem>
                 <Rating
-                  value={product.rating}
+                  value={Number(product.rating)}
                   text={`${product.numReviews} reviews`}
                   color='red'
                 />

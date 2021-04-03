@@ -7,7 +7,7 @@ import Order from '../models/orderModel.js';
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
-    shippinAddress,
+    shippingAddress,
     paymentMethod,
     itemsPrice,
     taxPrice,
@@ -20,10 +20,20 @@ const addOrderItems = asyncHandler(async (req, res) => {
     throw new Error('No order items');
     return;
   } else {
+    console.log({
+      orderItems,
+      user: req.user._id,
+      shippingAddress,
+      paymentMethod,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+    });
     const order = new Order({
       orderItems,
       user: req.user._id,
-      shippinAddress,
+      shippingAddress,
       paymentMethod,
       itemsPrice,
       taxPrice,
@@ -31,6 +41,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       totalPrice,
     });
     const createdOrder = await order.save();
+    console.log(createdOrder);
     res.status(201).json(createdOrder);
   }
 });

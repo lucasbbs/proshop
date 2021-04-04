@@ -19,6 +19,7 @@ const OrderScreen = ({ match }) => {
       (acc, curr) => acc + curr.price * curr.qty,
       0
     );
+    console.log(order.user);
   }
   useEffect(() => {
     dispatch(getOrderDetails(orderId));
@@ -72,7 +73,7 @@ const OrderScreen = ({ match }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order</h2>
+              <h2>Order Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (

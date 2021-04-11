@@ -8,10 +8,8 @@ import { listUsers, deleteUser } from '../actions/userActions';
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
-
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList;
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -27,10 +25,11 @@ const UserListScreen = ({ history }) => {
   }, [dispatch, history, successDelete]);
 
   const deleteHandler = (id) => {
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm('Are you sure')) {
       dispatch(deleteUser(id));
     }
   };
+
   return (
     <>
       <h1>Users</h1>
@@ -44,9 +43,9 @@ const UserListScreen = ({ history }) => {
             <tr>
               <th>ID</th>
               <th>NAME</th>
-              <th>EMAIl</th>
+              <th>EMAIL</th>
               <th>ADMIN</th>
-              <th>ACTIONS</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -86,5 +85,4 @@ const UserListScreen = ({ history }) => {
     </>
   );
 };
-
 export default UserListScreen;

@@ -29,9 +29,11 @@ const Header = () => {
               </LinkContainer>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
-                  {/* <LinkContainer to='/profile'> */}
-                  <NavDropdown.Item href='/profile'>Profile</NavDropdown.Item>
-                  {/* </LinkContainer> */}
+                  <LinkContainer to='/profile'>
+                    <NavDropdown.Item /*href='/profile'*/>
+                      Profile
+                    </NavDropdown.Item>
+                  </LinkContainer>
                   {/* <LinkContainer onClick={logoutHandler}> */}
                   <NavDropdown.Item onClick={logoutHandler}>
                     Log out
@@ -44,6 +46,19 @@ const Header = () => {
                     <i className='fas fa-user'></i> Sign In
                   </Nav.Link>
                 </LinkContainer>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminMenu'>
+                  <LinkContainer to='/admin/userList'>
+                    <NavDropdown.Item>Users</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/productList'>
+                    <NavDropdown.Item>Products</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/orderList'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
               )}
             </Nav>
           </Navbar.Collapse>

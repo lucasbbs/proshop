@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/');
   },
   filename(req, file, cb) {
-    cn(
+    cb(
       null,
       `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
     );
@@ -28,8 +28,8 @@ function checkFileType(file, cb) {
 }
 const upload = multer({
   storage,
-  fileFilter: function (req, files, cb) {
-    checkFileType(type, cb);
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
   },
 });
 

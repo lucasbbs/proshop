@@ -6,6 +6,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import { listProducts } from '../actions/productActions';
+import ProductCarousel from '../components/ProductCarousel';
 // import axios from 'axios';
 
 const HomeScreen = ({ match }) => {
@@ -30,6 +31,7 @@ const HomeScreen = ({ match }) => {
   // const products = [];
   return (
     <>
+      {!keyword && <ProductCarousel />}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />

@@ -7,20 +7,22 @@ import Loader from '../components/Loader';
 import { listProducts } from '../actions/productActions';
 // import axios from 'axios';
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+  const keyword = match.params.keyword;
+
   const dispatch = useDispatch();
   // const [products, setProducts] = useState([]);
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
+    dispatch(listProducts(keyword));
     // const fetchProducts = async () => {
     //   const { data } = await axios.get('/api/products');
     //   setProducts(data);
     // };
     // fetchProducts();
-  }, [dispatch]);
+  }, [dispatch, keyword]);
 
   // const products = [];
   return (
